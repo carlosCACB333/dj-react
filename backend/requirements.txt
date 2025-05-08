@@ -3,3 +3,4 @@ djangorestframework_simplejwt==5.5.0
 python-dotenv==1.1.0
 django-cors-headers==4.7.0
 weasyprint==65.1
+psycopg2-binary==2.9.10

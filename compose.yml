@@ -1,0 +1,45 @@
+services:
+
+  db:
+    image: postgres:17.4
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=master
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  backend:
+    image: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: production
+    environment:
+      - SECRET_KEY=django-insecure-)ln9y!&y0o4mq_r7u7_&+4mcpbrgq@lw5@pl5kfbqw11fdx&ct
+      - DEBUG=False
+      # - DATABASE_URL=postgresql://postgres:postgres@db:5432/master?schema=public
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=master
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: production
+      args:
+        - VITE_API_URL=http://localhost:8000/api
+    ports:
+      - "3000:80"
+
+volumes:
+  db-data:
