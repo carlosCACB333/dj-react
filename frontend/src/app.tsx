@@ -1,8 +1,8 @@
 import { HeroUIProvider } from '@heroui/system';
-import { useTheme } from '@heroui/use-theme';
+import { ToastProvider } from '@heroui/toast';
 import { Provider as StoreProvider } from 'react-redux';
 import { NavigateOptions, useHref, useNavigate } from 'react-router';
-import { MainRoutes } from './routes/main-routes.tsx';
+import { MainRoutes } from './routes/main.routes.tsx';
 import { store } from './store/store.ts';
 
 declare module '@react-types/shared' {
@@ -12,13 +12,13 @@ declare module '@react-types/shared' {
 }
 
 export const App = () => {
-	useTheme();
 	const navigate = useNavigate();
 
 	return (
 		<>
 			<HeroUIProvider navigate={navigate} useHref={useHref} locale='es-PE'>
 				<StoreProvider store={store}>
+					<ToastProvider />
 					<MainRoutes />
 				</StoreProvider>
 			</HeroUIProvider>

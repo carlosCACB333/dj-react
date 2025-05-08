@@ -56,6 +56,8 @@ export const authSlice = createSlice({
 				state.user = action.payload;
 			})
 			.addCase(tokenVerifyApi.rejected, (state, action) => {
+				setLocalStorage(LOCAL_STORAGE_ACCESS_TOKEN, undefined);
+				setLocalStorage(LOCAL_STORAGE_REFRESH_TOKEN, undefined);
 				state.isChecking = false;
 				state.error = action.payload?.message;
 				state.errors = action.payload?.errors;
