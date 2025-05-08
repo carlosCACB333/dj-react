@@ -45,6 +45,7 @@ export default function ProductCreatePage() {
 			</div>
 
 			<ProductForm
+				predict
 				companies={data}
 				id='product-form-create'
 				onSubmit={onSubmit}

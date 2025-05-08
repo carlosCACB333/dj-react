@@ -26,3 +26,18 @@ export const deleteProductApi = async (id: string) => {
 
 	return response;
 };
+
+export const predictProductPriceApi = async (data: {
+	name: string;
+	features: string;
+	currency: string;
+}) => {
+	const response = await fetchApi<{
+		predicted_price: number;
+	}>(`/products/predict-price`, {
+		method: 'POST',
+		body: JSON.stringify(data),
+	});
+
+	return response;
+};
