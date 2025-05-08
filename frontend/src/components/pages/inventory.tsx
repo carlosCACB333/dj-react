@@ -4,11 +4,9 @@ import { Product } from '@/interfaces/product';
 import { fetchApi } from '@/libs/fetch';
 import { Button } from '@heroui/button';
 import { Spinner } from '@heroui/spinner';
-import { useTransition } from 'react';
 import { ProductsTable } from '../organisms/products-table';
 
 export default function CompanyPage() {
-	const [dowloading, startDownload] = useTransition();
 	const { isLoading, data = [] } = useSWR('/products', (url) => fetchApi<Product[]>(url));
 	if (isLoading) return <Spinner />;
 
