@@ -18,7 +18,6 @@ services:
     environment:
       - SECRET_KEY=django-insecure-)ln9y!&y0o4mq_r7u7_&+4mcpbrgq@lw5@pl5kfbqw11fdx&ct
       - DEBUG=False
-      # - DATABASE_URL=postgresql://postgres:postgres@db:5432/master?schema=public
       - DB_HOST=db
       - DB_PORT=5432
       - DB_NAME=master

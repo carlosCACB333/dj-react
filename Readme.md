@@ -5,13 +5,13 @@
 - Clonar el repositorio
 
 ```bash
-git clone
+git clone git@github.com:carlosCACB333/dj-react.git
 ```
 
 - Ejecuta con docker-compose
 
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 
 - El frontend estará disponible en http://localhost:3000
