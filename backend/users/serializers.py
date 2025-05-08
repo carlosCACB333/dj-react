@@ -1,6 +1,11 @@
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.serializers import (
+    TokenObtainPairSerializer,
+    TokenVerifySerializer as BaseTokenVerifySerializer,
+)
 from users.models import User, Role
 from rest_framework import serializers
+from rest_framework_simplejwt.tokens import UntypedToken
+from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -48,7 +53,22 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
-
         data["user"] = UserSerializer(self.user).data
+        return data
+
+
+class TokenVerifySerializer(BaseTokenVerifySerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        try:
+
+            token = UntypedToken(attrs["token"])
+            user_id = token.get("user_id")
+
+            user = User.objects.get(id=user_id)
+            data["user"] = UserSerializer(user).data
+
+        except (TokenError, User.DoesNotExist) as e:
+            raise InvalidToken("Token inválido o usuario no encontrado")
 
         return data
