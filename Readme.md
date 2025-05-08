@@ -8,6 +8,8 @@
 git clone git@github.com:carlosCACB333/dj-react.git
 ```
 
+- renombra el archivo .env.template a .env y completa las variables de ambiente
+
 - Ejecuta con docker-compose
 
 ```bash
