@@ -5,7 +5,7 @@ import { useAppSelector } from '@/store/hooks';
 import { Button } from '@heroui/button';
 import { Spinner } from '@heroui/spinner';
 import { Link } from 'react-router';
-import { ProductsTable } from '../organisms/products-table';
+import { ProductsTable } from '../../organisms/products-table';
 export default function ProductPage() {
 	const { user } = useAppSelector((state) => state.auth);
 	const { isLoading, data = [] } = useSWR('/products', (url) => fetchApi<Product[]>(url));

@@ -7,7 +7,7 @@ import { Spinner } from '@heroui/spinner';
 import { addToast } from '@heroui/toast';
 import { useTransition } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { CompanyForm } from '../organisms/company-form';
+import { CompanyForm } from '../../organisms/company-form';
 export default function CompanyDetailsPage() {
 	const { id } = useParams();
 	const [updating, startUpdate] = useTransition();

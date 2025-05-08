@@ -8,7 +8,7 @@ import { Spinner } from '@heroui/spinner';
 import { addToast } from '@heroui/toast';
 import { useTransition } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { ProductForm } from '../organisms/product-form';
+import { ProductForm } from '../../organisms/product-form';
 
 const fetchData = async (url: string) => {
 	const [res1, res2] = await Promise.all([

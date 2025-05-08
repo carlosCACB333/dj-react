@@ -7,9 +7,9 @@ import { Button } from '@heroui/button';
 import { Divider } from '@heroui/divider';
 import { Form } from '@heroui/form';
 import { Input } from '@heroui/input';
-import { Link } from '@heroui/link';
 import { EyeIcon, EyeOff } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 export default function Page() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -60,7 +60,7 @@ export default function Page() {
 						variant='bordered'
 					/>
 					<div className='flex w-full items-center justify-between px-1 py-2'>
-						<Link className='text-default-500' href='#' size='sm'>
+						<Link className='text-default-500' to='#'>
 							¿Olvidaste tu contraseña?
 						</Link>
 					</div>
@@ -82,7 +82,7 @@ export default function Page() {
 
 				<p className='text-center text-small'>
 					¿Necesitas crear una cuenta?&nbsp;
-					<Link href='/auth/sign-up' size='sm'>
+					<Link to='/auth/sign-up' className='text-primary'>
 						Crear
 					</Link>
 				</p>

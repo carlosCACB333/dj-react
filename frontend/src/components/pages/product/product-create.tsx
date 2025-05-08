@@ -8,7 +8,7 @@ import { Spinner } from '@heroui/spinner';
 import { addToast } from '@heroui/toast';
 import { useState, useTransition } from 'react';
 import { useNavigate } from 'react-router';
-import { ProductForm } from '../organisms/product-form';
+import { ProductForm } from '../../organisms/product-form';
 
 export default function ProductCreatePage() {
 	const { isLoading, data = [] } = useSWR('/companies', (url) => fetchApi<Company[]>(url));

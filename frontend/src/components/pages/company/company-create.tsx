@@ -4,7 +4,7 @@ import { Button } from '@heroui/button';
 import { addToast } from '@heroui/toast';
 import { useState, useTransition } from 'react';
 import { useNavigate } from 'react-router';
-import { CompanyForm } from '../organisms/company-form';
+import { CompanyForm } from '../../organisms/company-form';
 
 export default function CompanyCreatePage() {
 	const [creating, startCreate] = useTransition();

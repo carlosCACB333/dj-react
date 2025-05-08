@@ -8,7 +8,7 @@ import { Input } from '@heroui/input';
 import { Spinner } from '@heroui/spinner';
 import { addToast } from '@heroui/toast';
 import { useTransition } from 'react';
-import { ProductsTable } from '../organisms/products-table';
+import { ProductsTable } from '../../organisms/products-table';
 
 export default function CompanyPage() {
 	const [sending, startSend] = useTransition();

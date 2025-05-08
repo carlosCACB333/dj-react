@@ -5,11 +5,10 @@ import { Button } from '@heroui/button';
 import { Divider } from '@heroui/divider';
 import { Form } from '@heroui/form';
 import { Input } from '@heroui/input';
-import { Link } from '@heroui/link';
 import { addToast } from '@heroui/toast';
 import { EyeIcon, EyeOff } from 'lucide-react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 export default function Page() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -118,7 +117,7 @@ export default function Page() {
 
 				<p className='text-center text-small'>
 					¿Ya tienes una cuenta?&nbsp;
-					<Link href={'/auth/sign-in'} size='sm'>
+					<Link to={'/auth/sign-in'} className='text-primary'>
 						Iniciar sesión
 					</Link>
 				</p>
